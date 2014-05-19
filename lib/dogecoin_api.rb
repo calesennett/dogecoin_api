@@ -2,8 +2,8 @@ require "dogecoin_api/version"
 require 'httparty'
 
 module DogecoinApi
-  @api_key = DOGE_API_KEY
-  @PIN = PIN
+  @api_key = request.env["DOGE_API_KEY"]
+  @PIN = request.env["PIN"]
   @base_url = "https://dogeapi.com/wow/v2/?api_key="
 
   def self.create_user(user_id)
