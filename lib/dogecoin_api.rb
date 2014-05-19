@@ -40,6 +40,6 @@ module DogecoinApi
 
   def self.call(endpoint)
     response = HTTParty.get("#{@base_url + @api_key + "&a=" + endpoint}")
-    response.body
+    JSON.parse(response.body)
   end
 end
