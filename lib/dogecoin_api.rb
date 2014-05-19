@@ -2,9 +2,9 @@ require 'dogecoin_api/version'
 require 'httparty'
 
 module DogecoinApi
-  @api_key = ENV['DOGE_API_KEY']
-  @PIN = ENV['PIN']
-  @base_url = "https://dogeapi.com/wow/v2/?api_key="
+  api_key = ENV['DOGE_API_KEY']
+  PIN = ENV['PIN']
+  base_url = "https://dogeapi.com/wow/v2/?api_key="
 
   def self.create_user(user_id)
     endpoint = "create_user&user_id=#{user_id}"
@@ -22,7 +22,7 @@ module DogecoinApi
   end
 
   def self.withdraw_from_user(user_id, amount, payment_address)
-    endpoint = "withdraw_from_user&user_id=#{user_id}&pin=#{@PIN}&amount_doge=#{amount}&payment_address=#{payment_address}"
+    endpoint = "withdraw_from_user&user_id=#{user_id}&pin=#{PIN}&amount_doge=#{amount}&payment_address=#{payment_address}"
     self.call(endpoint)
   end
 
@@ -39,7 +39,7 @@ module DogecoinApi
   private
 
   def self.call(endpoint)
-    response = HTTParty.get("#{@base_url + @api_key + "&a=" + endpoint}")
+    response = HTTParty.get("#{base_url + api_key + "&a=" + endpoint}")
     response.body
   end
 end
