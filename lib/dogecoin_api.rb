@@ -1,5 +1,5 @@
 require "dogecoin_api/version"
-require "httparty"
+require 'httparty'
 
 module DogecoinApi
   @api_key = DOGE_API_KEY
