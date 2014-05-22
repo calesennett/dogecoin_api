@@ -31,6 +31,11 @@ module DogecoinApi
     self.call(endpoint)
   end
 
+  def self.get_users
+    endpoint = "get_users"
+    self.call(endpoint)
+  end
+
   def self.get_info
     endpoint = "get_info"
     self.call(endpoint)
